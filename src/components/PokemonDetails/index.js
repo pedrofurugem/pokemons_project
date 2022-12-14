@@ -2,6 +2,8 @@ import { useState, useEffect} from 'react'
 import { getPokemon, getAbilities } from '../../services/apis'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import  React, { useContext } from 'react'
+import { ThemeContext } from '../../context/themes-context'
 import styled from 'styled-components'
 import PokemonTitle from '../../images/pokemon_title.png'
 import Pokeball from '../../images/pokeball.png'
@@ -28,6 +30,7 @@ const PokemonDetails = () => {
     const [ability, setAbility] = useState([])
     const [type, setType] = useState([])
     const {name} = useParams()
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
 
@@ -61,7 +64,7 @@ const PokemonDetails = () => {
 
 
     return(
-        <>
+        <section style={{ backgroundColor: theme.background }}>
         <Header>
             <PokemonLogoTitle src={PokemonTitle} alt="pokemon-title"/>
             <PokeballImg src={Pokeball} alt="Pokemon" />
@@ -153,7 +156,7 @@ const PokemonDetails = () => {
           </Link>
           <Back>Back To Home</Back>
         </Footer>
-        </>
+        </section>
         
     )
 }
@@ -235,7 +238,7 @@ const PokemonSectionGrid = styled.section`
          "PokemonPerfil Types Types"  auto / 400px 140px 500px;
     border: 1px solid black;
     border-radius: 25px;
-    background-color: #4682B4;
+    background-color: #A9A9A9;
 `
 
 const PokemonPerfil = styled.div`

@@ -1,12 +1,17 @@
 import './App.css';
 import AppRoutes from './pages/routes' 
 import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from './context/themes-context.js'
+import { ThemeTogglerButton } from './components/Theme-toggler-button/index'
 
 function App() {
   return (
     <div>
-     <GlobalStyle />
-     <AppRoutes />
+     <ThemeProvider>
+      <ThemeTogglerButton />
+      <GlobalStyle />
+      <AppRoutes />
+     </ThemeProvider>
     </div>
   );
 }

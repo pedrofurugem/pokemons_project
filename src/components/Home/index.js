@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { getPokemonList, getPokemon } from '../../services/apis'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../../context/themes-context'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import PokemonTitle from '../../images/pokemon_title.png'
 import Pokeball from '../../images/pokeball.png'
@@ -13,6 +15,7 @@ const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
     const [load, setLoad] = useState(0)
     const pokeLoads = 10;
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
         async function FetchData(){
@@ -33,7 +36,7 @@ const PokemonList = () => {
     }
 
     return (
-        <>
+        <section style={{backgroundColor: theme.background}}>
             <Header>
             <PokemonLogoTitle src={PokemonTitle} alt="title"/>
             <PokeballImg src={Pokeball} alt="Pokemon" />
@@ -58,7 +61,7 @@ const PokemonList = () => {
                     <ShowMore>Show More</ShowMore>
                 </Button>
             </Footer>
-        </>
+        </section>
     )
 }
 
@@ -87,7 +90,7 @@ const PokemonCards = styled.section`
 `
 
 const PokemonCard = styled.div`
-   background-color: #4682B4;
+   background-color: #A9A9A9;
    border: 1px solid black;
    display: flex;
    align-items: center;
@@ -111,8 +114,8 @@ const Name = styled.p`
    align-items: center;
    font-family: 'Pokemon';
    letter-spacing: 3px;
-   font-size: 18px;
-   color: #FFF;
+   font-size: 22px;
+   color: #FFCC03;
 `
 
 const Icon = styled.img`
