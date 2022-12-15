@@ -11,24 +11,25 @@ import PokeballGif from '../../images/pokeball.gif'
 
 //Essa listagem deve mostrar a imagem e nome de cada pokemon
 const PokemonList = () => {
-
     const [pokedex, setPokedex] = useState([])
     const [load, setLoad] = useState(0)
     const pokeLoads = 10;
     const { theme } = useContext(ThemeContext)
+    
+    const [search, setSearch] = useState("")
+    const [searchType] = useState(["types"])
 
     useEffect(() => {
         async function FetchData(){
-            const pokeData = await getPokemonList(pokeLoads, load)//limit e contagem
-            const pokeName = pokeData.map( name => { return  getPokemon(name)})
-            
+            const pokeData = await getPokemonList(pokeLoads, load)
+            const pokeName = pokeData.map( name => { return getPokemon(name)})
 
             const pokemonPromise = await Promise.all(pokeName)
 
-            setPokedex([...pokedex, ...pokemonPromise]) //usando o operador spread
+            setPokedex([...pokedex, ...pokemonPromise]) 
         }
+        
         FetchData()
-
     }, [load])
 
     function handleClickMore(){
@@ -38,9 +39,21 @@ const PokemonList = () => {
     return (
         <section style={{backgroundColor: theme.background}}>
             <Header>
-            <PokemonLogoTitle src={PokemonTitle} alt="title"/>
-            <PokeballImg src={Pokeball} alt="Pokemon" />
+                <PokemonLogoTitle src={PokemonTitle} alt="title"/>
+                <PokeballImg src={Pokeball} alt="Pokemon" />
             </Header>
+
+            <SearchArea>
+                <label htmlFor="search-form">
+                    <Input type="search" 
+                        name="search-form"
+                        id="search-form"
+                        placeholder="  Search Pokemon's Type"
+                        value={search}
+                        onChange={(ev)=> setSearch(ev.target.value)}
+                        />
+                </label>
+            </SearchArea>
 
             <PokemonCards>
                 {pokedex.map((pokemon, index) => {
@@ -80,6 +93,19 @@ const PokeballImg = styled.img`
    margin-top: 30px;
 `
 
+const SearchArea = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: center
+`
+
+const Input = styled.input`
+   width: 350px;
+   height: 40px;
+   margin: 10px 0px;
+   border-radius: 25px;
+`
+
 const PokemonCards = styled.section`
     display: flex;
     align-items: center;
@@ -115,7 +141,7 @@ const Name = styled.p`
    font-family: 'Pokemon';
    letter-spacing: 3px;
    font-size: 22px;
-   color: #FFCC03;
+   color: #FFF;
 `
 
 const Icon = styled.img`
