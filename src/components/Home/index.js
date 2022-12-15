@@ -16,8 +16,8 @@ const PokemonList = () => {
     const pokeLoads = 10;
     const { theme } = useContext(ThemeContext)
     
-    const [search, setSearch] = useState("")
-    const [searchType] = useState(["types"])
+    const [searchFilter, setSearchFilter] = useState(["types"])
+    const [result, setResult] = useState("")
 
     useEffect(() => {
         async function FetchData(){
@@ -36,6 +36,10 @@ const PokemonList = () => {
         setLoad(load + pokeLoads)
     }
 
+    const onChange = (evt) => {
+        setResult(evt.target.value)
+    }
+
     return (
         <section style={{backgroundColor: theme.background}}>
             <Header>
@@ -49,8 +53,8 @@ const PokemonList = () => {
                         name="search-form"
                         id="search-form"
                         placeholder="  Search Pokemon's Type"
-                        value={search}
-                        onChange={(ev)=> setSearch(ev.target.value)}
+                        value={result}
+                        onChange={onChange}
                         />
                 </label>
             </SearchArea>
@@ -71,7 +75,7 @@ const PokemonList = () => {
             <Footer>
                 <Button onClick={handleClickMore}>
                     <PokeballButton src={PokeballGif} alt="pokeball-gif" />
-                    <ShowMore>Show More</ShowMore>
+                    <ShowMore style={{color: theme.color}}>Show More</ShowMore>
                 </Button>
             </Footer>
         </section>
@@ -116,7 +120,7 @@ const PokemonCards = styled.section`
 `
 
 const PokemonCard = styled.div`
-   background-color: #A9A9A9;
+   background-color: #6495ED;
    border: 1px solid black;
    display: flex;
    align-items: center;
@@ -168,7 +172,6 @@ const PokeballButton = styled.img`
 const ShowMore = styled.p`
    font-family: 'Pokemon';
    font-size: 18px;
-   color: #FFCC03;
    letter-spacing: 3px;
 `
 

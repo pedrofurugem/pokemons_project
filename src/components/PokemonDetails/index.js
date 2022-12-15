@@ -154,7 +154,7 @@ const PokemonDetails = () => {
           <Link to='/'>
              <PokeballButton src={PokeballGif} alt="pokeball button"/>
           </Link>
-          <Back>Back To Home</Back>
+          <Back style={{color: theme.color}}>Back To Home</Back>
         </Footer>
         </section>
         
@@ -238,7 +238,7 @@ const PokemonSectionGrid = styled.section`
          "PokemonPerfil Types Types"  auto / 400px 140px 500px;
     border: 1px solid black;
     border-radius: 25px;
-    background-color: #A9A9A9;
+    background-color: #6495ED;
 `
 
 const PokemonPerfil = styled.div`
@@ -271,6 +271,5 @@ const PokeballButton = styled.img`
 const Back = styled.p`
    font-family: 'Pokemon';
    font-size: 18px;
-   color: #FFCC03;
    letter-spacing: 3px;
 `
