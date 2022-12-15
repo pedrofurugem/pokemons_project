@@ -4,6 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from './context/themes-context.js'
 import { ThemeTogglerButton } from './components/Theme-toggler-button/index'
 
+
+
 function App() {
   return (
     <div>
@@ -20,6 +22,13 @@ const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
     padding: 0;
+  }
+
+  :root {
+    --CornflowerBlue: #6495ED;
+    --grey11: #1C1C1C;
+    --white: #FFF;
+    --yellowGold: #FFCC03;
   }
 
   li {

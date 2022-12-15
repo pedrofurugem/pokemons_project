@@ -120,7 +120,7 @@ const PokemonCards = styled.section`
 `
 
 const PokemonCard = styled.div`
-   background-color: #6495ED;
+   background-color: var(--CornflowerBlue);
    border: 1px solid black;
    display: flex;
    align-items: center;
@@ -133,10 +133,10 @@ const PokemonCard = styled.div`
 `
 
 const ImgPokemon = styled.img`
-   background-color: #FFF;
+   background-color: var(--white);
    width: 200px;
    padding: 10px;
-   border: 6px solid #FFCC03;
+   border: 6px solid var(--yellowGold);
    border-radius: 50%;
 `
 const Name = styled.p`
@@ -145,7 +145,7 @@ const Name = styled.p`
    font-family: 'Pokemon';
    letter-spacing: 3px;
    font-size: 22px;
-   color: #FFF;
+   color: var(--white);
 `
 
 const Icon = styled.img`

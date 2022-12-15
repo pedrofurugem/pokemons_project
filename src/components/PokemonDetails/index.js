@@ -198,22 +198,22 @@ const Perfil = styled.div`
 
 const PerfilImage = styled.img`
     width: 200px;
-    border: 6px solid #FFCC03;
+    border: 6px solid var(--yellowGold);
     border-radius: 50%;
     padding: 20px;
-    background-color: #FFF;
+    background-color: var(--white);
 `
 
 const PokemonColor = styled.p`
    font-weight: bold;
-   color: #1C1C1C;
+   color: var(--grey11);
 `
 
 const Name = styled.p`
    font-family: 'Pokemon';
    font-size: 20px;
    letter-spacing: 3px;
-   color: #1C1C1C;
+   color: var(--grey11);
 `
 
 const ImagesDetails = styled.div`
@@ -232,17 +232,17 @@ const TitleDetails = styled.h1`
 
 const HabilitiesName = styled.h3`
    font-weight: bold;
-   color: #1C1C1C;
+   color: var(--grey11);
 `
 
 const PokemonSectionGrid = styled.section`
     display: grid;
     grid: "PokemonPerfil Moves Habilities"   
-         "PokemonPerfil Moves Habilities"  
-         "PokemonPerfil Types Types"  auto / 400px 140px 380px;
+          "PokemonPerfil Moves Habilities"  
+          "PokemonPerfil Types Types"  auto / 400px 140px 380px;
     border: 1px solid black;
     border-radius: 25px;
-    background-color: #6495ED;
+    background-color: var(--CornflowerBlue);;
 `
 
 const PokemonPerfil = styled.div`
