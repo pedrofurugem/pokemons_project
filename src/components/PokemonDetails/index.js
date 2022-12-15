@@ -65,97 +65,95 @@ const PokemonDetails = () => {
 
     return(
         <section style={{ backgroundColor: theme.background }}>
-        <Header>
-            <PokemonLogoTitle src={PokemonTitle} alt="pokemon-title"/>
-            <PokeballImg src={Pokeball} alt="Pokemon" />
-        </Header>
+            <Header>
+                <PokemonLogoTitle src={PokemonTitle} alt="pokemon-title"/>
+                <PokeballImg src={Pokeball} alt="Pokemon" />
+            </Header>
 
-        <PokemonSection>
-            <PokemonSectionGrid>
-                <PokemonPerfil>
-                {
-                    pokemon.map((poke, index) => {
-                        return(
-                            <PokemonImages key={index}>
-                                <Perfil>
-                                <PerfilImage src={poke.sprites.other['official-artwork'].front_default} 
-                                alt="pokemon-artwok"/>
-                                <Name>{poke.name}</Name>
-                                </Perfil>
-                                <ImagesDetails>
-                                    <PokemonColor>Default</PokemonColor>
-                                    <ImagesDetail src={poke.sprites.front_default} 
-                                    alt="pokemon sprite"/>
-                                    <ImagesDetail src={poke.sprites.back_default} 
-                                    alt="pokemon sprite"/>
-                                </ImagesDetails>
-                                <ImagesDetails>
-                                    <PokemonColor>Shiny</PokemonColor>
-                                    <ImagesDetail src={poke.sprites.front_shiny} 
-                                    alt="pokemon sprite"/>
-                                    <ImagesDetail src={poke.sprites.back_shiny} 
-                                    alt="pokemon sprite"/>
-                                </ImagesDetails>   
-                            </PokemonImages>
-                        )
-                    })
-                }
-                </PokemonPerfil>
-
-                <Moves>
-                    <h1>Moves</h1>
-                    <ul>
+            <PokemonSection>
+                <PokemonSectionGrid>
+                    <PokemonPerfil>
                     {
-                        moves.map((pokemon, index) => {
+                        pokemon.map((poke, index) => {
                             return(
-                                <li key={index}>
-                                    {pokemon.name}
-                                </li>
+                                <PokemonImages key={index}>
+                                    <Perfil>
+                                    <PerfilImage src={poke.sprites.other['official-artwork'].front_default} 
+                                    alt="pokemon-artwok"/>
+                                    <Name>{poke.name}</Name>
+                                    </Perfil>
+                                    <ImagesDetails>
+                                        <PokemonColor>Default</PokemonColor>
+                                        <ImagesDetail src={poke.sprites.front_default} 
+                                        alt="pokemon sprite"/>
+                                        <ImagesDetail src={poke.sprites.back_default} 
+                                        alt="pokemon sprite"/>
+                                    </ImagesDetails>
+                                    <ImagesDetails>
+                                        <PokemonColor>Shiny</PokemonColor>
+                                        <ImagesDetail src={poke.sprites.front_shiny} 
+                                        alt="pokemon sprite"/>
+                                        <ImagesDetail src={poke.sprites.back_shiny} 
+                                        alt="pokemon sprite"/>
+                                    </ImagesDetails>   
+                                </PokemonImages>
                             )
                         })
                     }
-                    </ul>
-                </Moves>
-
-                <Habilities>
-                    <h1>Habilities</h1>
-                    <ul>
+                    </PokemonPerfil>
+                   
+                    <Moves>
+                        <TitleDetails>Moves</TitleDetails>
+                        <ul>
                         {
-                            ability.map((pokemon, index) => {
+                            moves.map((pokemon, index) => {
                                 return(
-                                    <li key={index}>
-                                        <HabilitiesName>{pokemon.name}</HabilitiesName>
-                                        <p>{pokemon.effect_entries[0].effect}</p>
-                                        
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </Habilities>
-                <Types>
-                    <h1>Types</h1>
-                    <ul>
-                        {
-                            type.map((pokemon, index) => {
-                                return (
                                     <li key={index}>
                                         {pokemon.name}
                                     </li>
                                 )
                             })
                         }
-                    </ul>
-                </Types>
-            </PokemonSectionGrid>
-        </PokemonSection>
+                        </ul>
+                    </Moves>
+                    <Habilities>
+                        <TitleDetails>Habilities</TitleDetails>
+                        <ul>
+                            {
+                                ability.map((pokemon, index) => {
+                                    return(
+                                        <li key={index}>
+                                            <HabilitiesName>{pokemon.name}</HabilitiesName>
+                                            <p>{pokemon.effect_entries[0].effect}</p>                 
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Habilities>
+                    <Types>
+                        <TitleDetails>Types</TitleDetails>
+                        <ul>
+                            {
+                                type.map((pokemon, index) => {
+                                    return (
+                                        <li key={index}>
+                                            {pokemon.name}
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Types>
+                </PokemonSectionGrid>
+            </PokemonSection>
 
-        <Footer>
-          <Link to='/'>
-             <PokeballButton src={PokeballGif} alt="pokeball button"/>
-          </Link>
-          <Back style={{color: theme.color}}>Back To Home</Back>
-        </Footer>
+            <Footer>
+                <Link to='/'>
+                    <PokeballButton src={PokeballGif} alt="pokeball button"/>
+                </Link>
+                 <Back style={{color: theme.color}}>Back To Home</Back>
+            </Footer>
         </section>
         
     )
@@ -208,13 +206,14 @@ const PerfilImage = styled.img`
 
 const PokemonColor = styled.p`
    font-weight: bold;
+   color: #1C1C1C;
 `
 
 const Name = styled.p`
    font-family: 'Pokemon';
    font-size: 20px;
    letter-spacing: 3px;
-   color: #FFCC03;
+   color: #1C1C1C;
 `
 
 const ImagesDetails = styled.div`
@@ -227,15 +226,20 @@ const ImagesDetail = styled.img`
    width: 150px;
 `
 
-const HabilitiesName = styled.p`
+const TitleDetails = styled.h1`
+   font-size: 22px;
+`
+
+const HabilitiesName = styled.h3`
    font-weight: bold;
+   color: #1C1C1C;
 `
 
 const PokemonSectionGrid = styled.section`
     display: grid;
     grid: "PokemonPerfil Moves Habilities"   
          "PokemonPerfil Moves Habilities"  
-         "PokemonPerfil Types Types"  auto / 400px 140px 500px;
+         "PokemonPerfil Types Types"  auto / 400px 140px 380px;
     border: 1px solid black;
     border-radius: 25px;
     background-color: #6495ED;
@@ -247,14 +251,17 @@ const PokemonPerfil = styled.div`
 
 const Moves = styled.div`
     grid-area: Moves;
+    padding: 10px;
 `
 
 const Habilities = styled.div`
     grid-area: Habilities;
+    padding: 10px;
 `
 
 const Types = styled.div`
     grid-area: Types;
+    padding: 10px;
 `
 
 const Footer = styled.footer`
