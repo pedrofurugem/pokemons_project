@@ -125,6 +125,15 @@ const PokemonDetails = () => {
                             }
                         </ul>
                     </Types>
+
+                    <Shiny >
+                        <TitleDetails>fun fact:</TitleDetails>
+                        <ShinyDescription>Shiny Pokémon are rare variants of Pokémon that have 
+                        different colors than other Pokémon of the same species. 
+                        If you're lucky, you may encounter Shiny Pokémon randomly in the wild, 
+                        especially during special events like Community Day or Pokémon GO Fest.
+                        </ShinyDescription>
+                    </Shiny >
                 </PokemonSectionGrid>
             </PokemonSection>
 
@@ -203,9 +212,9 @@ const HabilitiesName = styled.h3`
 
 const PokemonSectionGrid = styled.section`
     display: grid;
-    grid: "PokemonPerfil Moves Habilities"   
-          "PokemonPerfil Moves Habilities"  
-          "PokemonPerfil Types Types"  auto / 400px 140px 380px;
+    grid: "PokemonPerfil Habilities Moves"   
+          "PokemonPerfil Shiny Types"  
+          "PokemonPerfil Shiny Types"  auto / 400px 480px 140px;
     border: 1px solid black;
     border-radius: 25px;
     background-color: var(--CornflowerBlue);;
@@ -213,6 +222,7 @@ const PokemonSectionGrid = styled.section`
 
 const PokemonPerfil = styled.div`
     grid-area: PokemonPerfil;
+    
 `
 
 const Moves = styled.div`
@@ -228,6 +238,15 @@ const Habilities = styled.div`
 const Types = styled.div`
     grid-area: Types;
     padding: 10px;
+`
+
+const Shiny = styled.div`
+   grid-area: Shiny;
+   padding: 10px;
+`
+
+const ShinyDescription = styled.p`
+   color: var(--white)
 `
 
 const Footer = styled.footer`
