@@ -8,13 +8,13 @@ import { ThemeTogglerButton } from './components/Theme-toggler-button/index'
 
 function App() {
   return (
-    <div>
      <ThemeProvider>
-      <ThemeTogglerButton />
-      <GlobalStyle />
-      <AppRoutes />
+      <>
+        <ThemeTogglerButton />
+        <GlobalStyle />
+        <AppRoutes />
+      </>
      </ThemeProvider>
-    </div>
   );
 }
 
