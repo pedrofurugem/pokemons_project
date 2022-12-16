@@ -3,6 +3,7 @@ import AppRoutes from './pages/routes'
 import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from './context/themes-context.js'
 import { ThemeTogglerButton } from './components/Theme-toggler-button/index'
+import { Navbar } from  './components/Navbar/index'
 
 
 
@@ -10,7 +11,7 @@ function App() {
   return (
      <ThemeProvider>
       <>
-        <ThemeTogglerButton />
+        <Navbar />
         <GlobalStyle />
         <AppRoutes />
       </>

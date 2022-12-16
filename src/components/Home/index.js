@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../context/themes-context'
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import PokemonTitle from '../../images/pokemon_title.png'
-import Pokeball from '../../images/pokeball.png'
 import PokeballIcon from '../../images/pokeball-icon.png'
 import PokeballGif from '../../images/pokeball.gif'
+
+
+
 
 const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
@@ -40,12 +41,7 @@ const PokemonList = () => {
     }
 
     return (
-        <section style={{backgroundColor: theme.background}}>
-            <Header>
-                <PokemonLogoTitle src={PokemonTitle} alt="title"/>
-                <PokeballImg src={Pokeball} alt="Pokemon" />
-            </Header>
-
+        <section style={{backgroundColor: theme.background}}>  
             <SearchArea>
                 <label htmlFor="search-form">
                     <Input type="search" 
@@ -81,20 +77,6 @@ const PokemonList = () => {
     )
 }
 
-const Header = styled.header`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-`
-
-const PokemonLogoTitle = styled.img`
-   width: 500px;
-`
-
-const PokeballImg = styled.img`
-   width: 100px;
-   margin-top: 30px;
-`
 
 const SearchArea = styled.section`
     display: flex;

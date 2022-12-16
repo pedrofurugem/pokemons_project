@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import  React, { useContext } from 'react'
 import { ThemeContext } from '../../context/themes-context'
 import styled from 'styled-components'
-import PokemonTitle from '../../images/pokemon_title.png'
-import Pokeball from '../../images/pokeball.png'
 import PokeballGif from '../../images/pokeball.gif'
 
 async function Pokemon(){
@@ -51,11 +49,7 @@ const PokemonDetails = () => {
 
     return(
         <section style={{ backgroundColor: theme.background }}>
-            <Header>
-                <PokemonLogoTitle src={PokemonTitle} alt="pokemon-title"/>
-                <PokeballImg src={Pokeball} alt="Pokemon" />
-            </Header>
-
+            
             <PokemonSection>
                 <PokemonSectionGrid>
                     <PokemonPerfil>
@@ -146,20 +140,6 @@ const PokemonDetails = () => {
 }
 
 export { PokemonDetails }
-
-const Header = styled.header`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-`
-const PokemonLogoTitle = styled.img`
-   width: 400px;
-   margin: 25px 0px;
-`
-const PokeballImg = styled.img`
-   width: 80px;
-   margin-top: 40px;
-`
 
 const PokemonSection = styled.section`
     display: flex;
