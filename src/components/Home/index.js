@@ -7,6 +7,12 @@ import styled from 'styled-components'
 import PokeballIcon from '../../images/pokeball-icon.png'
 import PokeballGif from '../../images/pokeball.gif'
 
+async function Pokemon(){
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/11`)
+    const json = await response.json();
+    console.log(json)
+}
+Pokemon()
 
 
 
@@ -15,9 +21,6 @@ const PokemonList = () => {
     const [load, setLoad] = useState(0)
     const pokeLoads = 10;
     const { theme } = useContext(ThemeContext)
-    
-    const [searchFilter, setSearchFilter] = useState(["types"])
-    const [result, setResult] = useState("")
 
     useEffect(() => {
         async function FetchData(){
@@ -36,60 +39,34 @@ const PokemonList = () => {
         setLoad(load + pokeLoads)
     }
 
-    const onChange = (evt) => {
-        setResult(evt.target.value)
+    if(pokedex.length > 0){
+        return (
+            <section style={{backgroundColor: theme.background}}>    
+                <PokemonCards>
+                    {pokedex.map((pokemon, index) => {
+                        return (
+                                <Link to={`/PokemonDetails/${pokemon.name}`} key={index}>
+                                    <PokemonCard>
+                                        <ImgPokemon src={pokemon.sprites.other['official-artwork'].front_default} alt="pokemon-artwork"/>
+                                        <Name><Icon src={PokeballIcon} alt="pokeball-icon" /> {pokemon.name}</Name>
+                                    </PokemonCard>
+                                </Link>
+                            )
+                        })
+                    }
+                </PokemonCards>
+                <Footer>
+                    <Button onClick={handleClickMore}>
+                        <PokeballButton src={PokeballGif} alt="pokeball-gif" />
+                        <ShowMore style={{color: theme.color}}>Show More</ShowMore>
+                    </Button>
+                </Footer>
+            </section>
+        )
+    }else{
+        return <Error>No pokemon found</Error>
     }
-
-    return (
-        <section style={{backgroundColor: theme.background}}>  
-            <SearchArea>
-                <label htmlFor="search-form">
-                    <Input type="search" 
-                        name="search-form"
-                        id="search-form"
-                        placeholder="  Search Pokemon's Type"
-                        value={result}
-                        onChange={onChange}
-                        />
-                </label>
-            </SearchArea>
-
-            <PokemonCards>
-                {pokedex.map((pokemon, index) => {
-                    return (
-                            <Link to={`/PokemonDetails/${pokemon.name}`} key={index}>
-                            <PokemonCard>
-                                <ImgPokemon src={pokemon.sprites.other['official-artwork'].front_default} alt="pokemon-artwork"/>
-                                <Name><Icon src={PokeballIcon} alt="pokeball-icon" /> {pokemon.name}</Name>
-                            </PokemonCard>
-                            </Link>
-                        )
-                    })
-                }
-            </PokemonCards>
-            <Footer>
-                <Button onClick={handleClickMore}>
-                    <PokeballButton src={PokeballGif} alt="pokeball-gif" />
-                    <ShowMore style={{color: theme.color}}>Show More</ShowMore>
-                </Button>
-            </Footer>
-        </section>
-    )
 }
-
-
-const SearchArea = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center
-`
-
-const Input = styled.input`
-   width: 350px;
-   height: 40px;
-   margin: 10px 0px;
-   border-radius: 25px;
-`
 
 const PokemonCards = styled.section`
     display: flex;
@@ -154,6 +131,13 @@ const ShowMore = styled.p`
    font-family: 'Pokemon';
    font-size: 18px;
    letter-spacing: 3px;
+`
+
+const Error = styled.p`
+   font-family: 'Pokemon';
+   color: red;
+   letter-spacing: 3px;
+   text-align: center;
 `
 
 export { PokemonList }
