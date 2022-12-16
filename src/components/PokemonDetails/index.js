@@ -15,14 +15,6 @@ async function Pokemon(){
     console.log(json)
 }
 Pokemon()
-/*
-Lista de movimentos do pokemon (moves)
-Lista de habilidades do pokemon (abilities)
-a lista de habilidades deve apresentar o nome e o texto
-descritivo da habilidade
-Tipo do pokemon (type)
-
-*/
 
 const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState([])
@@ -35,26 +27,20 @@ const PokemonDetails = () => {
     useEffect(() => {
 
         async function FetchData() {
-            //nome e imagem do pokemon
             const pokeData = await getPokemon(name)
             setPokemon([pokeData])
 
-           //movimentos
            const pokeMoves = await pokeData.moves.map(pokemon =>  pokemon.move ) 
            setMoves(pokeMoves.slice(0, 20))
-
-           //abilidades, tenho que acessar a api da habilidade
-           //const pokeName = pokeData.map( name => { return  getPokemon(name)})
-           const PokemonAbilites = await pokeData.abilities.map(pokemon => { 
-            let abilities = pokemon.ability.name
-            return  getAbilities(abilities)
-           })
            
-           const PokemonAbilitiesPromise = await Promise.all(PokemonAbilites)
-           console.log('PokemonAbilites', PokemonAbilitiesPromise)
+           const PokemonAbilites = await pokeData.abilities.map(pokemon => { 
+             let abilities = pokemon.ability.name
+             return  getAbilities(abilities)
+            })
+           
+           const PokemonAbilitiesPromise = await Promise.all(PokemonAbilites)  
            setAbility(PokemonAbilitiesPromise)
-
-           //tipos
+           
            const pokeTypes = await pokeData.types.map(pokemon => pokemon.type)
            setType(pokeTypes)
 
@@ -280,3 +266,5 @@ const Back = styled.p`
    font-size: 18px;
    letter-spacing: 3px;
 `
+
+//possível tratamento de erros

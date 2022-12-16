@@ -9,7 +9,6 @@ import Pokeball from '../../images/pokeball.png'
 import PokeballIcon from '../../images/pokeball-icon.png'
 import PokeballGif from '../../images/pokeball.gif'
 
-//Essa listagem deve mostrar a imagem e nome de cada pokemon
 const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
     const [load, setLoad] = useState(0)
@@ -129,7 +128,7 @@ const PokemonCard = styled.div`
    border-radius: 25px;
    width: 250px;
    height: 350px;
-   margin: 10px;
+   margin: 15px;
 `
 
 const ImgPokemon = styled.img`
