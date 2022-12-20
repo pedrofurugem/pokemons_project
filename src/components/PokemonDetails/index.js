@@ -87,9 +87,9 @@ const PokemonDetails = () => {
                         {
                             moves.map((pokemon, index) => {
                                 return(
-                                    <li key={index}>
+                                    <Li key={index}>
                                         {pokemon.name}
-                                    </li>
+                                    </Li>
                                 )
                             })
                         }
@@ -101,10 +101,10 @@ const PokemonDetails = () => {
                             {
                                 ability.map((pokemon, index) => {
                                     return(
-                                        <li key={index}>
+                                        <Li key={index}>
                                             <HabilitiesName>{pokemon.name}</HabilitiesName>
                                             <p>{pokemon.effect_entries[0].effect}</p>                 
-                                        </li>
+                                        </Li>
                                     )
                                 })
                             }
@@ -116,9 +116,9 @@ const PokemonDetails = () => {
                             {
                                 type.map((pokemon, index) => {
                                     return (
-                                        <li key={index}>
+                                        <Li key={index}>
                                             {pokemon.name}
-                                        </li>
+                                        </Li>
                                     )
                                 })
                             }
@@ -153,6 +153,43 @@ const PokemonSection = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+const PokemonSectionGrid = styled.section`
+    display: grid;
+    grid: "PokemonPerfil Habilities Moves"
+          "PokemonPerfil Shiny Moves"  
+          "PokemonPerfil Types Moves"  
+            auto / 400px 480px 140px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: var(--CornflowerBlue);;
+`
+
+const PokemonPerfil = styled.div`
+    grid-area: PokemonPerfil;
+
+`
+
+const Moves = styled.div`
+    grid-area: Moves;
+    padding: 10px;
+`
+
+const Habilities = styled.div`
+    grid-area: Habilities;
+    padding: 10px;
+    
+`
+
+const Types = styled.div`
+    grid-area: Types;
+    padding: 10px;
+`
+
+const Shiny = styled.div`
+   grid-area: Shiny;
+   padding: 10px;
 `
 
 const PokemonImages = styled.div`
@@ -209,44 +246,19 @@ const HabilitiesName = styled.h3`
    color: var(--grey11);
 `
 
-const PokemonSectionGrid = styled.section`
-    display: grid;
-    grid: "PokemonPerfil Habilities Moves"   
-          "PokemonPerfil Shiny Types"  
-          "PokemonPerfil Shiny Types"  auto / 400px 480px 140px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background-color: var(--CornflowerBlue);;
-`
-
-const PokemonPerfil = styled.div`
-    grid-area: PokemonPerfil;
-
-`
-
-const Moves = styled.div`
-    grid-area: Moves;
-    padding: 10px;
-`
-
-const Habilities = styled.div`
-    grid-area: Habilities;
-    padding: 10px;
-    
-`
-
-const Types = styled.div`
-    grid-area: Types;
-    padding: 10px;
-`
-
-const Shiny = styled.div`
-   grid-area: Shiny;
-   padding: 10px;
+const Li = styled.li`
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  color: #F5FFFA;
 `
 
 const ShinyDescription = styled.p`
-   color: var(--white)
+   color: var(--white);
+   font-size: 18px;
+   font-weight: bold;
+   margin-top: 5px;
+   color: #F5FFFA;
 `
 
 const Footer = styled.footer`
