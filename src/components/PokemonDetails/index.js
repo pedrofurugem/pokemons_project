@@ -255,6 +255,7 @@ const TitleDetails = styled.h1`
    font-family: 'Pokemon';
    letter-spacing: 3px;
    font-size: 18px;
+   color: var(--grey11);
    @media (max-width: 820px) {
     font-size: 18px;
     }

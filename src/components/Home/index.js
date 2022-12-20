@@ -20,7 +20,6 @@ const PokemonList = () => {
             const pokeName = pokeData.map( name => { return getPokemon(name)})
 
             const pokemonPromise = await Promise.all(pokeName)
-            console.log('pokemonPromise: ', pokemonPromise)
             setPokedex([...pokedex, ...pokemonPromise]) 
 
         }   
