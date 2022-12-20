@@ -11,8 +11,6 @@ export const ThemeTogglerButton = () => {
     function handleChangeTheme(){
         setTheme(theme === themes.light ? themes.dark : themes.light)
     } 
-    
-    console.log('ThemeTogglerButton: ', theme)
 
     return(
         <div style={{backgroundColor: theme.background}}>

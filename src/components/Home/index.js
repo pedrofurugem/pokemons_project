@@ -7,19 +7,14 @@ import styled from 'styled-components'
 import PokeballIcon from '../../images/pokeball-icon.png'
 import PokeballGif from '../../images/pokeball.gif'
 
-async function Pokemon(){
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/11`)
-    const json = await response.json();
-    console.log(json)
-}
-Pokemon()
-
-
 
 const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
     const [load, setLoad] = useState(0)
     const pokeLoads = 10;
+    const [search, setSearch] = useState("")
+    //define os parâmetros de pesquisa
+    const [searchType] = useState(["types[0].type.name"])
     const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
@@ -28,8 +23,19 @@ const PokemonList = () => {
             const pokeName = pokeData.map( name => { return getPokemon(name)})
 
             const pokemonPromise = await Promise.all(pokeName)
-
+            console.log('pokemonPromise: ', pokemonPromise)
             setPokedex([...pokedex, ...pokemonPromise]) 
+
+            const results = pokemonPromise.map((pokemon) =>{ return pokemon.types[0].type.name })
+            console.log('results', results)
+
+            /*const pokedexFilter = pokemonPromise.map((pokemon) => {
+                return searchType.some((newItem) => {
+                    return pokemon[newItem]?.toString()?.toLowerCase()?.    indexOf(search.toLowerCase()) > -1
+                });
+            });
+            console.log('pokedexFilter: ', pokedexFilter)*/
+
         }
         
         FetchData()
@@ -39,9 +45,23 @@ const PokemonList = () => {
         setLoad(load + pokeLoads)
     }
 
+    function onChange(ev){
+        setSearch(ev.target.value)
+    }
+
     if(pokedex.length > 0){
         return (
             <section style={{backgroundColor: theme.background}}>    
+                <label htmlFor="searchType">
+                    <input 
+                    type="search"
+                    name="searchType"
+                    id="searchType"
+                    className="search-type"
+                    placeholder="Search pokemon's type"
+                    value={search}
+                    onChange={onChange}/>
+                </label>
                 <PokemonCards>
                     {pokedex.map((pokemon, index) => {
                         return (

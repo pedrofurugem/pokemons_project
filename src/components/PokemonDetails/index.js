@@ -23,7 +23,6 @@ const PokemonDetails = () => {
     const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
-
         async function FetchData() {
             const pokeData = await getPokemon(name)
             setPokemon([pokeData])
@@ -222,7 +221,7 @@ const PokemonSectionGrid = styled.section`
 
 const PokemonPerfil = styled.div`
     grid-area: PokemonPerfil;
-    
+
 `
 
 const Moves = styled.div`
@@ -233,6 +232,7 @@ const Moves = styled.div`
 const Habilities = styled.div`
     grid-area: Habilities;
     padding: 10px;
+    
 `
 
 const Types = styled.div`
