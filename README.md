@@ -1,6 +1,5 @@
 <h1>Breve descrição do propósito da aplicação;</h1>
-Breve descrição das funcionalidades da
-aplicação entregue;
+Breve descrição das funcionalidades da aplicação entregue;
 Ferramentas utilizadas, e o por que estas foram
 escolhidas para a realização do desafio;
 Decisões adotadas durante o planejamento e
