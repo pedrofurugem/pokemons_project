@@ -24,12 +24,17 @@ const Header = styled.header`
    justify-content: center;
 `
 
-
 const PokemonLogoTitle = styled.img`
    width: 400px;
    margin: 25px 0px;
+   @media (max-width: 768px) {
+      width: 200px;
+   }
 `
 const PokeballImg = styled.img`
    width: 80px;
    margin-top: 40px;
+   @media (max-width: 768px) {
+      width: 40px;
+   }
 `

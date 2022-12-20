@@ -12,9 +12,6 @@ const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
     const [load, setLoad] = useState(0)
     const pokeLoads = 10;
-    const [search, setSearch] = useState("")
-    //define os parâmetros de pesquisa
-    const [searchType] = useState(["types[0].type.name"])
     const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
@@ -26,18 +23,7 @@ const PokemonList = () => {
             console.log('pokemonPromise: ', pokemonPromise)
             setPokedex([...pokedex, ...pokemonPromise]) 
 
-            const results = pokemonPromise.map((pokemon) =>{ return pokemon.types[0].type.name })
-            console.log('results', results)
-
-            /*const pokedexFilter = pokemonPromise.map((pokemon) => {
-                return searchType.some((newItem) => {
-                    return pokemon[newItem]?.toString()?.toLowerCase()?.    indexOf(search.toLowerCase()) > -1
-                });
-            });
-            console.log('pokedexFilter: ', pokedexFilter)*/
-
-        }
-        
+        }   
         FetchData()
     }, [load])
 
@@ -45,28 +31,14 @@ const PokemonList = () => {
         setLoad(load + pokeLoads)
     }
 
-    function onChange(ev){
-        setSearch(ev.target.value)
-    }
-
     if(pokedex.length > 0){
         return (
             <section style={{backgroundColor: theme.background}}>    
-                <label htmlFor="searchType">
-                    <input 
-                    type="search"
-                    name="searchType"
-                    id="searchType"
-                    className="search-type"
-                    placeholder="Search pokemon's type"
-                    value={search}
-                    onChange={onChange}/>
-                </label>
                 <PokemonCards>
                     {pokedex.map((pokemon, index) => {
                         return (
                                 <Link to={`/PokemonDetails/${pokemon.name}`} key={index}>
-                                    <PokemonCard>
+                                    <PokemonCard style={{backgroundColor: theme.backgroundCard}}>
                                         <ImgPokemon src={pokemon.sprites.other['official-artwork'].front_default} alt="pokemon-artwork"/>
                                         <Name><Icon src={PokeballIcon} alt="pokeball-icon" /> {pokemon.name}</Name>
                                     </PokemonCard>
@@ -95,10 +67,12 @@ const PokemonCards = styled.section`
     flex-wrap: wrap;
     width: 70vw;
     margin: auto;
+    @media (max-width: 768px) {
+      width: 50vw;
+   }
 `
 
 const PokemonCard = styled.div`
-   background-color: var(--Card);
    border: 1px solid black;
    display: flex;
    align-items: center;
@@ -108,6 +82,10 @@ const PokemonCard = styled.div`
    width: 250px;
    height: 350px;
    margin: 15px;
+   @media (max-width: 768px) {
+      width: 150px;
+      height: 220px;
+   }
 `
 
 const ImgPokemon = styled.img`
@@ -116,6 +94,9 @@ const ImgPokemon = styled.img`
    padding: 10px;
    border: 6px solid var(--border);
    border-radius: 50%;
+   @media (max-width: 768px) {
+      width: 100px;
+    }
 `
 const Name = styled.p`
    display: flex;
@@ -124,10 +105,16 @@ const Name = styled.p`
    letter-spacing: 3px;
    font-size: 22px;
    color: var(--white);
+   @media (max-width: 768px) {
+    font-size: 15px;
+    }
 `
 
 const Icon = styled.img`
    width: 40px;
+   @media (max-width: 768px) {
+    width: 20px;
+    }
 `
 
 const Footer = styled.footer`
@@ -145,12 +132,18 @@ const Button = styled.button`
 
 const PokeballButton = styled.img`
    width: 80px;
+   @media (max-width: 768px) {
+      width: 40px;
+    }
 `
 
 const ShowMore = styled.p`
    font-family: 'Pokemon';
    font-size: 18px;
    letter-spacing: 3px;
+   @media (max-width: 768px) {
+      font-size: 16px;
+    }
 `
 
 const Error = styled.p`

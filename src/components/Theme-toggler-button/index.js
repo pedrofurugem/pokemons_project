@@ -24,6 +24,9 @@ export const ThemeTogglerButton = () => {
 
 const PokeballGif = styled.img`
    width: 50px;
+   @media (max-width: 768px) {
+      width: 30px;
+    }
 `
 const Button = styled.button`
    border: none;
@@ -35,4 +38,7 @@ const P = styled.p`
    font-family: 'Pokemon';
    font-size: 16px;
    letter-spacing: 3px;
+   @media (max-width: 768px) {
+      font-size: 12px;
+    }
 `

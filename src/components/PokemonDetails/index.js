@@ -44,7 +44,7 @@ const PokemonDetails = () => {
         <section style={{ backgroundColor: theme.background }}>
             
             <PokemonSection>
-                <PokemonSectionGrid>
+                <PokemonSectionGrid style={{backgroundColor: theme.backgroundCard}}>
                     <PokemonPerfil>
                     {
                         pokemon.map((poke, index) => {
@@ -96,7 +96,7 @@ const PokemonDetails = () => {
                                 ability.map((pokemon, index) => {
                                     return(
                                         <Li key={index}>
-                                            <HabilitiesName>{pokemon.name}</HabilitiesName>
+                                            <HabilitiesName>{pokemon.name}:</HabilitiesName>
                                             <p>{pokemon.effect_entries[0].effect}</p>                 
                                         </Li>
                                     )
@@ -155,19 +155,30 @@ const PokemonSectionGrid = styled.section`
           "PokemonPerfil Shiny Moves"  
           "PokemonPerfil Types Moves"  
             auto / 400px 480px 140px;
-    border: 1px solid black;
+    border: none;
     border-radius: 25px;
-    background-color: var(--Card);;
+    @media (max-width: 912px) {
+        display: grid;
+        grid: "PokemonPerfil"
+                "Shiny"
+                "Types"
+                "Habilities"
+                "Moves" auto 
+   }
 `
 
 const PokemonPerfil = styled.div`
     grid-area: PokemonPerfil;
-
+    
 `
 
 const Moves = styled.div`
     grid-area: Moves;
     padding: 10px;
+    @media (max-width: 912px) {
+        text-align: center;
+        column-count: 2;
+    }
 `
 
 const Habilities = styled.div`
@@ -178,11 +189,15 @@ const Habilities = styled.div`
 const Types = styled.div`
     grid-area: Types;
     padding: 10px;
+    @media (max-width: 912px) {
+        text-align: center;
+    }
 `
 
 const Shiny = styled.div`
    grid-area: Shiny;
    padding: 10px;
+   @media (max-width: 820px) {}
 `
 
 const PokemonImages = styled.div`
@@ -206,6 +221,9 @@ const PerfilImage = styled.img`
     border-radius: 50%;
     padding: 20px;
     background-color: var(--white);
+    @media (max-width: 768px) {
+      width: 100px;
+    }
 `
 
 const PokemonColor = styled.p`
@@ -228,10 +246,16 @@ const ImagesDetails = styled.div`
 
 const ImagesDetail = styled.img`
    width: 150px;
+   @media (max-width: 768px) {
+      width: 100px;
+    }
 `
 
 const TitleDetails = styled.h1`
    font-size: 22px;
+   @media (max-width: 820px) {
+    font-size: 18px;
+    }
 `
 
 const HabilitiesName = styled.h3`
@@ -244,6 +268,9 @@ const Li = styled.li`
   font-weight: bold;
   margin-top: 3px;
   color: #F5FFFA;
+  @media (max-width: 820px) {
+    font-size: 14px;
+    }
 `
 
 const ShinyDescription = styled.p`
@@ -252,6 +279,9 @@ const ShinyDescription = styled.p`
    font-weight: bold;
    margin-top: 5px;
    color: #F5FFFA;
+   @media (max-width: 820px) {
+    font-size: 14px;
+    }
 `
 
 const Footer = styled.footer`
@@ -263,12 +293,18 @@ const Footer = styled.footer`
 
 const PokeballButton = styled.img`
    width: 80px;
+   @media (max-width: 820px) {
+      width: 40px;
+    }
 `
 
 const Back = styled.p`
    font-family: 'Pokemon';
    font-size: 18px;
    letter-spacing: 3px;
+   @media (max-width: 820px) {
+      font-size: 12px;
+    }
 `
 
 //possível tratamento de erros
