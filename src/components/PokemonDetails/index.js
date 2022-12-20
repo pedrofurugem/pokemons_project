@@ -81,7 +81,7 @@ const PokemonDetails = () => {
                         {
                             moves.map((pokemon, index) => {
                                 return(
-                                    <Li key={index}>
+                                    <Li key={index} style={{color: theme.colorDescription}}>
                                         {pokemon.name}
                                     </Li>
                                 )
@@ -95,7 +95,7 @@ const PokemonDetails = () => {
                             {
                                 ability.map((pokemon, index) => {
                                     return(
-                                        <Li key={index}>
+                                        <Li key={index} style={{color: theme.colorDescription}}>
                                             <HabilitiesName>{pokemon.name}:</HabilitiesName>
                                             <p>{pokemon.effect_entries[0].effect}</p>                 
                                         </Li>
@@ -110,7 +110,7 @@ const PokemonDetails = () => {
                             {
                                 type.map((pokemon, index) => {
                                     return (
-                                        <Li key={index}>
+                                        <Li key={index} style={{color: theme.colorDescription}}>
                                             {pokemon.name}
                                         </Li>
                                     )
@@ -121,7 +121,7 @@ const PokemonDetails = () => {
 
                     <Shiny >
                         <TitleDetails>fun fact:</TitleDetails>
-                        <ShinyDescription>Shiny Pokémon are rare variants of Pokémon that have 
+                        <ShinyDescription style={{color: theme.colorDescription}}>Shiny Pokémon are rare variants of Pokémon that have 
                         different colors than other Pokémon of the same species. 
                         If you're lucky, you may encounter Shiny Pokémon randomly in the wild, 
                         especially during special events like Community Day or Pokémon GO Fest.
@@ -252,7 +252,9 @@ const ImagesDetail = styled.img`
 `
 
 const TitleDetails = styled.h1`
-   font-size: 22px;
+   font-family: 'Pokemon';
+   letter-spacing: 3px;
+   font-size: 18px;
    @media (max-width: 820px) {
     font-size: 18px;
     }

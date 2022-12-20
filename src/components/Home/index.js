@@ -40,7 +40,8 @@ const PokemonList = () => {
                                 <Link to={`/PokemonDetails/${pokemon.name}`} key={index}>
                                     <PokemonCard style={{backgroundColor: theme.backgroundCard}}>
                                         <ImgPokemon src={pokemon.sprites.other['official-artwork'].front_default} alt="pokemon-artwork"/>
-                                        <Name><Icon src={PokeballIcon} alt="pokeball-icon" /> {pokemon.name}</Name>
+                                        <Name style={{color: theme.colorDescription}}
+                                        ><Icon src={PokeballIcon} alt="pokeball-icon" /> {pokemon.name}</Name>
                                     </PokemonCard>
                                 </Link>
                             )
