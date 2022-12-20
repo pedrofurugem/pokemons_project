@@ -98,7 +98,7 @@ const PokemonCards = styled.section`
 `
 
 const PokemonCard = styled.div`
-   background-color: var(--CornflowerBlue);
+   background-color: var(--Card);
    border: 1px solid black;
    display: flex;
    align-items: center;
@@ -114,7 +114,7 @@ const ImgPokemon = styled.img`
    background-color: var(--white);
    width: 200px;
    padding: 10px;
-   border: 6px solid var(--yellowGold);
+   border: 6px solid var(--border);
    border-radius: 50%;
 `
 const Name = styled.p`

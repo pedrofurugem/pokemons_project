@@ -11,3 +11,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+  --Card: #6495ED;
+  --grey11: #1C1C1C;
+  --white: #FFF;
+  --border: #FFCC03;
+}

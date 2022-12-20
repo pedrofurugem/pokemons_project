@@ -7,12 +7,6 @@ import { ThemeContext } from '../../context/themes-context'
 import styled from 'styled-components'
 import PokeballGif from '../../images/pokeball.gif'
 
-async function Pokemon(){
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/11`)
-    const json = await response.json();
-    console.log(json)
-}
-Pokemon()
 
 const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState([])
@@ -163,7 +157,7 @@ const PokemonSectionGrid = styled.section`
             auto / 400px 480px 140px;
     border: 1px solid black;
     border-radius: 25px;
-    background-color: var(--CornflowerBlue);;
+    background-color: var(--Card);;
 `
 
 const PokemonPerfil = styled.div`
@@ -179,7 +173,6 @@ const Moves = styled.div`
 const Habilities = styled.div`
     grid-area: Habilities;
     padding: 10px;
-    
 `
 
 const Types = styled.div`
@@ -209,7 +202,7 @@ const Perfil = styled.div`
 
 const PerfilImage = styled.img`
     width: 200px;
-    border: 6px solid var(--yellowGold);
+    border: 6px solid var(--border);
     border-radius: 50%;
     padding: 20px;
     background-color: var(--white);

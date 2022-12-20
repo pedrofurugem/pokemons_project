@@ -22,13 +22,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  :root {
-    --CornflowerBlue: #6495ED;
-    --grey11: #1C1C1C;
-    --white: #FFF;
-    --yellowGold: #FFCC03;
-  }
-
   li {
     list-style: none;
     color: #FFF;
