@@ -1,5 +1,5 @@
 import './App.css';
-import AppRoutes from './pages/routes' 
+import AppRoutes from './routes/routes' 
 import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from './context/themes-context.js'
 import { Navbar } from  './components/Navbar/index'

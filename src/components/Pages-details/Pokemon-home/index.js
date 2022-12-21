@@ -1,41 +1,10 @@
-import { useState, useEffect } from 'react'
-import { getPokemonList, getPokemon } from '../../services/apis'
-import { Link } from 'react-router-dom'
-import { ThemeContext } from '../../context/themes-context'
-import React, { useContext } from 'react'
-import styled from 'styled-components'
-import PokeballIcon from '../../images/pokeball-icon.png'
-import PokeballGif from '../../images/pokeball.gif'
 
 
-const PokemonList = () => {
-    const [pokedex, setPokedex] = useState([])
-    const [load, setLoad] = useState(0)
-    const pokeLoads = 10;
-    const { theme } = useContext(ThemeContext)
-
-    useEffect(() => {
-        async function FetchData(){
-            const pokeData = await getPokemonList(pokeLoads, load)
-            const pokeName = pokeData.map( name => { return getPokemon(name)})
-
-            const pokemonPromise = await Promise.all(pokeName)
-           
-            setPokedex([...pokedex, ...pokemonPromise]) 
-
-        }   
-        FetchData()
-    }, [load])
-
-    function handleClickMore(){
-        setLoad(load + pokeLoads)
-    }
-
-    if(pokedex.length > 0){
-        return (
-            <section style={{backgroundColor: theme.background}}>    
-                <PokemonCards>
-                    {pokedex.map((pokemon, index) => {
+const PokemonHome = (props) => {
+    return(
+        <>
+        <PokemonCards>
+                    {props.map((pokemon, index) => {
                         return (
                                 <Link to={`/PokemonDetails/${pokemon.name}`} key={index}>
                                     <PokemonCard style={{backgroundColor: theme.backgroundCard}}>
@@ -54,11 +23,8 @@ const PokemonList = () => {
                         <ShowMore style={{color: theme.color}}>Show More</ShowMore>
                     </Button>
                 </Footer>
-            </section>
-        )
-    }else{
-        return <Error>No pokemon found</Error>
-    }
+        </>
+    )
 }
 
 const PokemonCards = styled.section`
@@ -145,13 +111,6 @@ const ShowMore = styled.p`
    @media (max-width: 768px) {
       font-size: 16px;
     }
-`
-
-const Error = styled.p`
-   font-family: 'Pokemon';
-   color: red;
-   letter-spacing: 3px;
-   text-align: center;
 `
 
 export { PokemonList }
