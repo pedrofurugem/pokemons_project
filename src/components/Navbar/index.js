@@ -9,10 +9,10 @@ export const Navbar = () => {
    const { theme } = useContext(ThemeContext)
     return(
       <>
-      <ThemeTogglerButton />
+      <ThemeTogglerButton/>
         <Header style={{backgroundColor: theme.background}}>
-                <PokemonLogoTitle src={Title} alt="title"/>
-                <PokeballImg src={Pokeball} alt="Pokemon" />
+               <PokemonLogoTitle src={Title} alt="title"/>
+               <PokeballImg src={Pokeball} alt="Pokemon" />
         </Header>
       </>
    )
@@ -31,6 +31,7 @@ const PokemonLogoTitle = styled.img`
       width: 200px;
    }
 `
+
 const PokeballImg = styled.img`
    width: 80px;
    margin-top: 40px;

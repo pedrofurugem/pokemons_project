@@ -15,10 +15,4 @@ async function getAbilities(abilities){
     return await response.json();
 }
 
-async function getType(type){
-    const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`)
-    return await response.json();
-}
-
-
-export { getPokemonList, getPokemon, getAbilities, getType }
+export { getPokemonList, getPokemon, getAbilities }

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { ThemeContext, themes } from '../../context/themes-context'
-//import { Button } from '../Button/index'
 import styled from 'styled-components'
 import PokeballTheme from '../../images/pokeball.gif'
 

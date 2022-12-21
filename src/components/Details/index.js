@@ -39,10 +39,8 @@ const PokemonDetails = () => {
         FetchData()
     }, [name])
 
-
     return(
         <section style={{ backgroundColor: theme.background }}>
-            
             <PokemonSection>
                 <PokemonSectionGrid style={{backgroundColor: theme.backgroundCard}}>
                     <PokemonPerfil>
@@ -74,14 +72,14 @@ const PokemonDetails = () => {
                         })
                     }
                     </PokemonPerfil>
-                   
                     <Moves>
                         <TitleDetails>Moves</TitleDetails>
                         <ul>
                         {
                             moves.map((pokemon, index) => {
                                 return(
-                                    <Li key={index} style={{color: theme.colorDescription}}>
+                                    <Li key={index} 
+                                    style={{color: theme.colorDescription}}>
                                         {pokemon.name}
                                     </Li>
                                 )
@@ -110,7 +108,8 @@ const PokemonDetails = () => {
                             {
                                 type.map((pokemon, index) => {
                                     return (
-                                        <Li key={index} style={{color: theme.colorDescription}}>
+                                        <Li key={index}
+                                        style={{color: theme.colorDescription}}>
                                             {pokemon.name}
                                         </Li>
                                     )
@@ -118,7 +117,6 @@ const PokemonDetails = () => {
                             }
                         </ul>
                     </Types>
-
                     <Shiny >
                         <TitleDetails>fun fact:</TitleDetails>
                         <ShinyDescription style={{color: theme.colorDescription}}>Shiny Pokémon are rare variants of Pokémon that have 
@@ -136,9 +134,7 @@ const PokemonDetails = () => {
                     <Back style={{color: theme.color}}>Back To Home</Back>
                     </Footer>
             </Link>
-                 
         </section>
-        
     )
 }
 
@@ -310,5 +306,3 @@ const Back = styled.p`
       font-size: 12px;
     }
 `
-
-//possível tratamento de erros
