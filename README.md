@@ -45,7 +45,8 @@ posso aprimorar mais</p>
 <div>
 <h2>Como rodar o Projeto</h2>
 <ul>
-  <li></li>
-  <li></li>
+  <li>gh repo clone pedrofurugem/pokemons_project</li>
+  <li>npm install, na pasta do projeto</li>
+  <li>para rodar: npm start</li>
 </ul>
 </div>
