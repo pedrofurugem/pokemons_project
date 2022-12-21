@@ -129,13 +129,14 @@ const PokemonDetails = () => {
                     </Shiny >
                 </PokemonSectionGrid>
             </PokemonSection>
-
-            <Footer>
-                <Link to='/'>
+            
+            <Link to='/'>
+                <Footer>
                     <PokeballButton src={PokeballGif} alt="pokeball button"/>
-                </Link>
-                 <Back style={{color: theme.color}}>Back To Home</Back>
-            </Footer>
+                    <Back style={{color: theme.color}}>Back To Home</Back>
+                    </Footer>
+            </Link>
+                 
         </section>
         
     )

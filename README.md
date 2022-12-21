@@ -26,15 +26,26 @@ escolhidas para a realização do desafio;
 <ul>
   <li>biblioteca: React</li>
   <li>linguagem: JavaScript</li>
+  <li>editor de código: visual studio code</li>
 </ul>
- <p></p>
+ <p>informações: Aa biblioteca React contém componentes, nos componentes são renderizados códigos JSX
+ Neste projeto em específico utilizamos bibliotecas como o styled components, rotas e hooks de estado(sendo essas
+ bibliotecas do próprio react)</p>
 </div>
 
-Decisões adotadas durante o planejamento e
-execução do desafio, justificando-as;
-Passo a passo dos comandos para que
-possamos rodar o seu projeto no nosso
-computador.
-<h2></h2>
+<div>
+<h2>Decisões e planejamento</h2>
+<p>Este é um projeto de front end, portanto foi utilizada a biblioteca react em prol de seu desenvolvimento,
+ao planejar esta aplicação, os primeiros passos foram fazer as requisições api, em seguida em inserir as rotas,
+renderizar os components com código JSX, aplicar o context e por fim estilizar a aplicação com styled components</p>
+<p>Esse projeto por si só foi um grande desafio tanto para meus estudos e minha aprendizagem em Front-End, ainda
+posso aprimorar mais</p>
+</div>
 
+<div>
 <h2>Como rodar o Projeto</h2>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+</div>
