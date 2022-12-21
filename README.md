@@ -3,6 +3,7 @@
 Breve descrição das funcionalidades da aplicação entregue;
 Ferramentas utilizadas, e o por que estas foram
 escolhidas para a realização do desafio;
+<div>
 <h2>funcionalidades do Projeto</h2>
 <ul>
   <li>Os pokemons e suas informações são consumidos da API pública: pokeApi</li>
@@ -18,15 +19,22 @@ escolhidas para a realização do desafio;
   habilidades, movimentos, tipo, e uma descrição sobre as espécies de pokemon brilhantes</li>
   <li>A baixo ha um botão para o usuário retornar a tela inicial dos cards dos pokemons</li>
 </ul>
+</div>
+<div>
 <h2>Ferramentas</h2>
+<p>Projeto desenvolvido com:</p>
 <ul>
-  <li>Os pokemons e suas informações são consumidos da API pública: pokeApi</li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>biblioteca: React</li>
+  <li>linguagem: JavaScript</li>
 </ul>
+ <p></p>
+</div>
+
 Decisões adotadas durante o planejamento e
 execução do desafio, justificando-as;
 Passo a passo dos comandos para que
 possamos rodar o seu projeto no nosso
 computador.
+<h2></h2>
+
+<h2>Como rodar o Projeto</h2>
