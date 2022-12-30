@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import PokeballGif from '../../images/pokeball.gif'
 
 const PokemonDetails = () => {
-    const [pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState({}) 
     const [moves, setMoves] = useState([])
     const [ability, setAbility] = useState([])
     const [type, setType] = useState([])
@@ -18,7 +18,7 @@ const PokemonDetails = () => {
     useEffect(() => {
         async function fetchData() {
             const pokeData = await getPokemon(name)
-            setPokemon([pokeData])
+            setPokemon(pokeData)
 
            const pokeMoves = await pokeData.moves.map(pokemon =>  pokemon.move ) 
            setMoves(pokeMoves.slice(0, 20))
@@ -43,33 +43,26 @@ const PokemonDetails = () => {
             <PokemonSection>
                 <PokemonSectionGrid style={{backgroundColor: theme.backgroundCard}}>
                     <PokemonPerfil>
-                    {
-                        pokemon.map((poke, index) => {
-                            return(
-                                <PokemonImages key={index}>
-                                    <Perfil>
-                                    <PerfilImage src={poke.sprites.other['official-artwork'].front_default} 
-                                    alt="pokemon-artwok"/>
-                                    <Name>{poke.name}</Name>
-                                    </Perfil>
-                                    <ImagesDetails>
-                                        <PokemonColor>Default</PokemonColor>
-                                        <ImagesDetail src={poke.sprites.front_default} 
-                                        alt="pokemon sprite"/>
-                                        <ImagesDetail src={poke.sprites.back_default} 
-                                        alt="pokemon sprite"/>
-                                    </ImagesDetails>
-                                    <ImagesDetails>
-                                        <PokemonColor>Shiny</PokemonColor>
-                                        <ImagesDetail src={poke.sprites.front_shiny} 
-                                        alt="pokemon sprite"/>
-                                        <ImagesDetail src={poke.sprites.back_shiny} 
-                                        alt="pokemon sprite"/>
-                                    </ImagesDetails>   
-                                </PokemonImages>
-                            )
-                        })
-                    }
+                        <PokemonImages >
+                            <Perfil>
+                                <PerfilImage src={pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon-artwok"/>
+                                <Name>{pokemon.name}</Name>
+                            </Perfil>
+                            <ImagesDetails>
+                                <PokemonColor>Default</PokemonColor>
+                                <ImagesDetail src={pokemon.sprites?.front_default} 
+                                alt="pokemon sprite"/>
+                                <ImagesDetail src={pokemon.sprites?.back_default} 
+                                alt="pokemon sprite"/>
+                            </ImagesDetails>
+                            <ImagesDetails>
+                                <PokemonColor>Shiny</PokemonColor>
+                                <ImagesDetail src={pokemon.sprites?.front_shiny} 
+                                alt="pokemon sprite"/>
+                                <ImagesDetail src={pokemon.sprites?.back_shiny} 
+                                alt="pokemon sprite"/>
+                            </ImagesDetails>   
+                        </PokemonImages>
                     </PokemonPerfil>
                     <Moves>
                         <TitleDetails>Moves</TitleDetails>
