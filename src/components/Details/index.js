@@ -1,12 +1,11 @@
+import  React, { useContext } from 'react'
 import { useState, useEffect} from 'react'
 import { getPokemon, getAbilities } from '../../services/apis'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import  React, { useContext } from 'react'
 import { ThemeContext } from '../../context/themes-context'
 import styled from 'styled-components'
 import PokeballGif from '../../images/pokeball.gif'
-
 
 const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState([])
@@ -17,7 +16,7 @@ const PokemonDetails = () => {
     const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
-        async function FetchData() {
+        async function fetchData() {
             const pokeData = await getPokemon(name)
             setPokemon([pokeData])
 
@@ -36,7 +35,7 @@ const PokemonDetails = () => {
            setType(pokeTypes)
 
         }
-        FetchData()
+        fetchData()
     }, [name])
 
     return(

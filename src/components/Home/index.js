@@ -1,12 +1,11 @@
+import React, { useContext } from 'react'
 import { useState, useEffect } from 'react'
 import { getPokemonList, getPokemon } from '../../services/apis'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../context/themes-context'
-import React, { useContext } from 'react'
 import styled from 'styled-components'
 import PokeballIcon from '../../images/pokeball-icon.png'
 import PokeballGif from '../../images/pokeball.gif'
-
 
 const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
@@ -15,7 +14,7 @@ const PokemonList = () => {
     const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
-        async function FetchData(){
+        async function fetchData(){
             const pokeData = await getPokemonList(pokeLoads, load)
             const pokeName = pokeData.map( name => { return getPokemon(name)})
 
@@ -24,7 +23,7 @@ const PokemonList = () => {
             setPokedex([...pokedex, ...pokemonPromise]) 
 
         }   
-        FetchData()
+        fetchData()
     }, [load])
 
     function handleClickMore(){
