@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { CardList } from '../CardList/index'
 import { ThemeContext } from '../../context/themes-context'
 import { getPokemonList, getPokemon } from '../../services/apis'
-import styled from 'styled-components'
 
 const PokemonList = () => {
     const [pokedex, setPokedex] = useState([])
@@ -28,18 +27,11 @@ const PokemonList = () => {
                     {pokedex.length !== undefined ? (
                         <CardList pokedex={pokedex} />
                     ) : (
-                        <Error>No pokemon found</Error>
+                       "No pokemon found"
                     )}
                 </div>
             </section>
     )
 }
-
-const Error = styled.p`
-   font-family: 'Pokemon';
-   color: red;
-   letter-spacing: 3px;
-   text-align: center;
-`
 
 export { PokemonList }
